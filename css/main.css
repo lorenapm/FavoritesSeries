@@ -9,11 +9,29 @@ body {
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-.item__series-list {
+.contain {
+  display: flex;
+  flex-direction: row;
+}
+.series-list {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+}
+.serie__list--item {
   color: blanchedalmond;
   background-color: crimson;
-  margin-bottom: 30px;
+  padding: 20px;
+  margin: 30px;
 }
 .item__name {
   color: blanchedalmond;
+}
+.box__favorites {
+  background-color: darkgrey;
+  color: crimson;
+}
+.favorite {
+  color: crimson;
+  background-color: blanchedalmond;
 }
