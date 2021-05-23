@@ -2,7 +2,6 @@
 
 //array vacío para las series favoritas
 let favoriteSeries = [];
-console.log(favoriteSeries);
 
 // función que recorre las fichas de series
 function addListenersToSeries() {
@@ -18,19 +17,42 @@ function handleClickSerie(event) {
   showSerieItem.classList.toggle("favorites1");
   //selecciono los favoritos según su id
   const showSerieId = parseInt(showSerieItem.id);
+
   //lo busco en el mi array de datos
-  const showIdData = seriesData.find(
-    (itemSerie) => itemSerie.id === showSerieId
-  );
+  const showIdData = seriesData.find((serie) => serie.show.id === showSerieId);
 
-  if (showIdData === undefined) {
-    favoriteSeries.push(showIdData);
-  }
-  const filteredSeries = filterSeries();
+  //lo añado a mis favoritos para después pintarlos
+  favoriteSeries.push(showIdData);
 
-  //render
-  rederFavSeries(filterSeries);
+  //guardo en localStorage para que la lista de favoritos no se borre
+  localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
+
+  paintFavoriteSeries();
 }
+
+function paintFavoriteSeries() {
+  //variable vacía para pintar luego el html. Recorro y pinto.
+  let listFavHTML = "";
+  for (const eachFavoriteSerie of favoriteSeries) {
+    const fav = eachFavoriteSerie.show;
+    console.log(fav);
+    console.log(fav.name);
+    let image = "";
+    if (fav.image === null) {
+      image = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
+    } else {
+      image = fav.image.medium;
+    }
+
+    listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites"><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
+    ulFavorites.innerHTML = listFavHTML;
+  }
+}
+
+//const filteredSeries = filterSeries();
+
+//render
+//rederFavSeries(filteredSeries);
 
 //Escucho a todas las series filtradas,
 
@@ -58,4 +80,5 @@ function handleClickSerie(event) {
   const serieInfo = seriesData.find((serie) => serie.id === selectedId);
   console.log(serieInfo);
 }
-listSeries.addEventListener("click", handleClickSerie);*/
+listSeries.addEventListener("click", handleClickSerie);
+*/
