@@ -3,6 +3,7 @@
 const text = document.querySelector(".js-text");
 const btn = document.querySelector(".js-button");
 const listSeries = document.querySelector(".js-series-list");
+const ulFavorites = document.querySelector(".js-series-favorites");
 
 /*const newSerie = document.createElement("li");
 listSeries.appendChild(newSerie);

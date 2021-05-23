@@ -12,14 +12,13 @@ function addListenersToSeries() {
   }
 }
 
-// elegir las series favoritas del listado
+// elegir las series favoritas del listado y cambiar la clase
 function handleClickSerie(event) {
   const showSerieItem = event.currentTarget;
-  console.log(showSerieItem);
-
-  // cambia a la clase a favorites cuando pinchas sobre la serie
   showSerieItem.classList.toggle("favorites1");
+  //showSerieItem.appendchild(ulFavorites);
 }
+console.log(seriesData);
 
 //Escucho a todas las series filtradas,
 
