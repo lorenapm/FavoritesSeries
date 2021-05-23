@@ -5,10 +5,14 @@ let seriesData = [];
 
 function handleSearchSeries(event) {
   event.preventDefault();
+
   fetch(`http://api.tvmaze.com/search/shows?q=${text.value}`)
     .then((response) => response.json())
     .then((data) => {
       seriesData = data;
+
+      favoriteSeries = JSON.parse(localStorage.getItem("favoriteSeries"));
+      paintFavoriteSeries(favoriteSeries);
 
       //variable vacía para pintar luego el html. Recorro y pinto.
       let listHTML = "";

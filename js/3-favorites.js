@@ -20,11 +20,13 @@ function handleClickSerie(event) {
 
   //lo busco en el mi array de datos
   const showIdData = seriesData.find((serie) => serie.show.id === showSerieId);
+  console.log(showIdData);
 
   //lo busco con mi array de favoritos
   const showSerieFav = favoriteSeries.find(
-    (serieItem) => serieItem.id === showSerieId
+    (serieId) => serieId.show.id === showSerieId
   );
+  console.log(favoriteSeries);
 
   //condicional: si no está en favoritos lo añado, sino alerta
   if (showSerieFav === undefined) {
@@ -32,7 +34,7 @@ function handleClickSerie(event) {
   } else {
     window.alert("Esta serie ya está entre sus favoritas");
   }
-
+  console.log(showSerieFav);
   //lo añado a mis favoritos para después pintarlos
 
   //guardo en localStorage para que la lista de favoritos no se borre
@@ -57,37 +59,3 @@ function paintFavoriteSeries() {
     ulFavorites.innerHTML = listFavHTML;
   }
 }
-
-//const filteredSeries = filterSeries();
-
-//render
-//rederFavSeries(filteredSeries);
-
-//Escucho a todas las series filtradas,
-
-/*function listenerSeries() {
-  const liElement = document.querySelectorAll(".js-favorite");
-  for (let i = 0; i < liElement.length; i++) {
-    liElement[i].addEventListener("click", handleClickSerie);
-  }
-}*/
-
-//cambiar el fondo cuando eligen serie
-/*function handleClickSerie(event) {
-  const clicked = event.currentTarget;
-  clicked.classList.toggle("favorite");
-}*/
-
-/*listenerSeries();
-//guardo en un array las series favoritas
-let favoriteSeries = [];
-
-function handleClickSerie(event) {
-  const whereUserCliked = event.target;
-  const whereIAddedEvent = event.currentTarget;
-  const selectedId = whereIAddedEvent.id;
-  const serieInfo = seriesData.find((serie) => serie.id === selectedId);
-  console.log(serieInfo);
-}
-listSeries.addEventListener("click", handleClickSerie);
-*/
