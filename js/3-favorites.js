@@ -21,8 +21,19 @@ function handleClickSerie(event) {
   //lo busco en el mi array de datos
   const showIdData = seriesData.find((serie) => serie.show.id === showSerieId);
 
+  //lo busco con mi array de favoritos
+  const showSerieFav = favoriteSeries.find(
+    (serieItem) => serieItem.id === showSerieId
+  );
+
+  //condicional: si no está en favoritos lo añado, sino alerta
+  if (showSerieFav === undefined) {
+    favoriteSeries.push(showIdData);
+  } else {
+    window.alert("Esta serie ya está entre sus favoritas");
+  }
+
   //lo añado a mis favoritos para después pintarlos
-  favoriteSeries.push(showIdData);
 
   //guardo en localStorage para que la lista de favoritos no se borre
   localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
