@@ -24,14 +24,17 @@ body {
   padding: 20px;
   margin: 30px;
 }
-.item__name {
-  color: blanchedalmond;
-}
+
 .box__favorites {
   background-color: darkgrey;
   color: crimson;
 }
-.favorite {
+.favorites {
   color: crimson;
   background-color: blanchedalmond;
+}
+
+.favorites1 {
+  color: blanchedalmond;
+  background-color: crimson;
 }

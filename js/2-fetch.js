@@ -1,4 +1,5 @@
 "use strict";
+
 //variable vacía para pintar el array que me devuelve API
 let seriesData = [];
 
@@ -8,10 +9,7 @@ function handleSearchSeries(event) {
     .then((response) => response.json())
     .then((data) => {
       seriesData = data;
-      console.log(seriesData);
-      /*for (const oneSerie of data) {
-        seriesData.push(oneSerie.show);
-      }*/
+
       //variable vacía para pintar luego el html. Recorro y pinto.
       let listHTML = "";
       for (const eachSerie of seriesData) {
@@ -22,10 +20,13 @@ function handleSearchSeries(event) {
         } else {
           image = series.image.medium;
         }
-        listHTML += `<li id="${series.id}" class="serie__list--item js-favorite"><img src="${image}" alt="${series.name}"><h3 class="item__name">${series.name}</h3></li>`;
+        listHTML += `<li id="${series.id}" class="serie__list--item js-favorite favorites"><img src="${image}" alt="${series.name}"><h3 class="item__name">${series.name}</h3></li>`;
         listSeries.innerHTML = listHTML;
+
+        //Llamo a la función para poder seleccionar las favoritas
+        addListenersToSeries();
       }
     });
+  //handleClickSerie();
 }
-
 btn.addEventListener("click", handleSearchSeries);
