@@ -35,8 +35,6 @@ function paintFavoriteSeries() {
   let listFavHTML = "";
   for (const eachFavoriteSerie of favoriteSeries) {
     const fav = eachFavoriteSerie.show;
-    console.log(fav);
-    console.log(fav.name);
     let image = "";
     if (fav.image === null) {
       image = "https://via.placeholder.com/210x295/ffffff/666666/?text=TV";
@@ -44,7 +42,7 @@ function paintFavoriteSeries() {
       image = fav.image.medium;
     }
 
-    listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites"><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
+    listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites1"><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
     ulFavorites.innerHTML = listFavHTML;
   }
 }
