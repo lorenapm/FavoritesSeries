@@ -16,9 +16,21 @@ function addListenersToSeries() {
 function handleClickSerie(event) {
   const showSerieItem = event.currentTarget;
   showSerieItem.classList.toggle("favorites1");
-  //showSerieItem.appendchild(ulFavorites);
+  //selecciono los favoritos según su id
+  const showSerieId = parseInt(showSerieItem.id);
+  //lo busco en el mi array de datos
+  const showIdData = seriesData.find(
+    (itemSerie) => itemSerie.id === showSerieId
+  );
+
+  if (showIdData === undefined) {
+    favoriteSeries.push(showIdData);
+  }
+  const filteredSeries = filterSeries();
+
+  //render
+  rederFavSeries(filterSeries);
 }
-console.log(seriesData);
 
 //Escucho a todas las series filtradas,
 
