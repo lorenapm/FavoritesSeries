@@ -10,11 +10,14 @@ body {
 }
 
 .contain {
+  background-color: brown;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
+
 .series-list {
-  height: auto;
   display: flex;
   flex-direction: row;
 }
@@ -28,6 +31,7 @@ body {
 .box__favorites {
   background-color: darkgrey;
   color: crimson;
+  display: inline-block;
 }
 .favorites {
   color: crimson;
