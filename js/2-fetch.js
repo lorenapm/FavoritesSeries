@@ -10,7 +10,7 @@ function handleSearchSeries(event) {
     favoriteSeries = JSON.parse(localStorage.getItem("favoriteSeries"));
     paintFavoriteSeries(favoriteSeries);
   }
-  fetch(`http://api.tvmaze.com/search/shows?q=${text.value}`)
+  fetch(`//api.tvmaze.com/search/shows?q=${text.value}`)
     .then((response) => response.json())
     .then((data) => {
       seriesData = data;
