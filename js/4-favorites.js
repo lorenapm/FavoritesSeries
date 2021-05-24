@@ -1,9 +1,6 @@
 "use strict";
 
-//array vacío para las series favoritas
-let favoriteSeries = [];
-
-// función que recorre las fichas de series
+// función que recorre las fichas de series y las escucha
 function addListenersToSeries() {
   const allSeriesCards = document.querySelectorAll(".js-favorite");
   for (const eachSerie of allSeriesCards) {
@@ -11,7 +8,7 @@ function addListenersToSeries() {
   }
 }
 
-// elegir las series favoritas del listado y cambiar la clase
+// elige las series favoritas del listado y cambiar la clase
 function handleClickSerie(event) {
   const showSerieItem = event.currentTarget;
   showSerieItem.classList.toggle("favorites1");
@@ -26,7 +23,6 @@ function handleClickSerie(event) {
   const showSerieFav = favoriteSeries.find(
     (serieId) => serieId.show.id === showSerieId
   );
-  console.log(favoriteSeries);
 
   //condicional: si no está en favoritos lo añado, sino alerta
   if (showSerieFav === undefined) {
@@ -34,7 +30,7 @@ function handleClickSerie(event) {
   } else {
     window.alert("Esta serie ya está entre sus favoritas");
   }
-  console.log(showSerieFav);
+
   //lo añado a mis favoritos para después pintarlos
 
   //guardo en localStorage para que la lista de favoritos no se borre

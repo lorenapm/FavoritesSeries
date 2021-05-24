@@ -1,11 +1,14 @@
 "use strict";
 
-function handleSearchSeries(event) {
+function preventSubmit(event) {
   event.preventDefault();
+}
+form.addEventListener("submit", preventSubmit);
 
+function handleSearchSeries() {
   if (localStorage.getItem("favoriteSeries") !== null) {
     favoriteSeries = JSON.parse(localStorage.getItem("favoriteSeries"));
-    paintFavoriteSeries(favoriteSeries);
+    paintFavoriteSeries();
   }
   searchSerie = text.value.toLowerCase();
   fetch(`//api.tvmaze.com/search/shows?q=${searchSerie}`)
@@ -15,4 +18,5 @@ function handleSearchSeries(event) {
       printSeries(seriesData);
     });
 }
+
 btn.addEventListener("click", handleSearchSeries);
