@@ -5,7 +5,7 @@ function addResetFav() {
     eachBtn.addEventListener("click", handleResetFav);
   }
 }
-/*function handleResetFav(event) {
+function handleResetFav(event) {
   //busco el index de la clicada por su id en favoritos
   const pressButtonReset = event.currentTarget.id;
   const FavResetId = parseInt(pressButtonReset);
@@ -18,8 +18,17 @@ function addResetFav() {
   //paintFavoriteSeries();
   //printSeries(seriesData);
   //localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
-} */
+}
 
-/*function resetAllFav() {
+const newBtnReset = document.createElement("button");
+const newContentBtn = document.createTextNode("Reset");
+boxFavorites.appendChild(newBtnReset);
+newBtnReset.appendChild(newContentBtn);
 
-}*/
+function resetAllFav() {
+  favoriteSeries = [];
+  localStorage.removeItem("favoriteSeries");
+  paintFavoriteSeries();
+  printSeries(seriesData);
+}
+newBtnReset.addEventListener("click", resetAllFav);
