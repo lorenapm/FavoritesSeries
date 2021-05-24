@@ -1,8 +1,5 @@
 "use strict";
 
-//variable vacía para pintar el array que me devuelve API
-let seriesData = [];
-
 function handleSearchSeries(event) {
   event.preventDefault();
 
@@ -10,7 +7,8 @@ function handleSearchSeries(event) {
     favoriteSeries = JSON.parse(localStorage.getItem("favoriteSeries"));
     paintFavoriteSeries(favoriteSeries);
   }
-  fetch(`//api.tvmaze.com/search/shows?q=${text.value}`)
+  searchSerie = text.value.toLowerCase();
+  fetch(`//api.tvmaze.com/search/shows?q=${searchSerie}`)
     .then((response) => response.json())
     .then((data) => {
       seriesData = data;
