@@ -10,8 +10,8 @@ body {
 }
 
 .contain {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: 75% 25%;
 }
 .series-list {
   height: auto;
@@ -26,8 +26,10 @@ body {
 }
 
 .box__favorites {
+  width: 300px;
   background-color: darkgrey;
   color: crimson;
+  display: inline-block;
 }
 .favorites {
   color: crimson;
