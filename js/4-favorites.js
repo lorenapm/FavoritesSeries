@@ -17,7 +17,6 @@ function handleClickSerie(event) {
 
   //lo busco en el mi array de datos
   const showIdData = seriesData.find((serie) => serie.show.id === showSerieId);
-  console.log(showIdData);
 
   //lo busco con mi array de favoritos
   const showSerieFav = favoriteSeries.find(
@@ -34,10 +33,20 @@ function handleClickSerie(event) {
   //lo añado a mis favoritos para después pintarlos
 
   //guardo en localStorage para que la lista de favoritos no se borre
+
   localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
 
   paintFavoriteSeries();
 }
+
+function getLocalStorage() {
+  if (localStorage.getItem("favoriteSeries") !== null) {
+    favoriteSeries = JSON.parse(localStorage.getItem("favoriteSeries"));
+    paintFavoriteSeries();
+  }
+}
+
+getLocalStorage();
 
 function paintFavoriteSeries() {
   //variable vacía para pintar luego el html. Recorro y pinto.
@@ -51,7 +60,8 @@ function paintFavoriteSeries() {
       image = fav.image.medium;
     }
 
-    listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites1"><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
+    listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites1"> <button class="btn-favorite js-btn-favorite " id="${fav.id}">X</button ><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
     ulFavorites.innerHTML = listFavHTML;
   }
+  //addResetFav();
 }

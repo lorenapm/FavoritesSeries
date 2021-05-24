@@ -24,10 +24,10 @@ body {
   align-items: flex-start;
 }
 .serie__list--item {
-  height: 370px;
+  height: 380px;
   color: blanchedalmond;
   background-color: crimson;
-  padding: 20px;
+  padding: 9px 20px;
   margin: 10px;
 }
 
@@ -44,4 +44,7 @@ body {
 .favorites1 {
   color: blanchedalmond;
   background-color: crimson;
+}
+
+.btn-favorite {
 }

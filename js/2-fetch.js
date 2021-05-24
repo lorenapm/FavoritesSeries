@@ -6,10 +6,6 @@ function preventSubmit(event) {
 form.addEventListener("submit", preventSubmit);
 
 function handleSearchSeries() {
-  if (localStorage.getItem("favoriteSeries") !== null) {
-    favoriteSeries = JSON.parse(localStorage.getItem("favoriteSeries"));
-    paintFavoriteSeries();
-  }
   searchSerie = text.value.toLowerCase();
   fetch(`//api.tvmaze.com/search/shows?q=${searchSerie}`)
     .then((response) => response.json())
