@@ -15,7 +15,7 @@ function handleResetFav(event) {
   //borro la serie clicada
   favoriteSeries.splice(i, 1);
 
-  //paintFavoriteSeries();
+  paintFavoriteSeries();
   //printSeries(seriesData);
   //localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
 }
@@ -25,10 +25,10 @@ const newContentBtn = document.createTextNode("Reset");
 boxFavorites.appendChild(newBtnReset);
 newBtnReset.appendChild(newContentBtn);
 
-function resetAllFav() {
+function handleResetAllFav() {
   favoriteSeries = [];
   localStorage.removeItem("favoriteSeries");
   paintFavoriteSeries();
   printSeries(seriesData);
 }
-newBtnReset.addEventListener("click", resetAllFav);
+newBtnReset.addEventListener("click", handleResetAllFav);
