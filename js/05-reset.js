@@ -16,8 +16,8 @@ function handleResetFav(event) {
   favoriteSeries.splice(i, 1);
 
   paintFavoriteSeries();
-  //printSeries(seriesData);
-  //localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
+  printSeries(seriesData);
+  localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
 }
 
 const newBtnReset = document.createElement("button");
