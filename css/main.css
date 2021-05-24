@@ -10,19 +10,21 @@ body {
 }
 
 .contain {
-  background-color: brown;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: flex-start;
 }
 
 .series-list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: flex-start;
 }
 .serie__list--item {
+  height: 370px;
   color: blanchedalmond;
   background-color: crimson;
   padding: 20px;
