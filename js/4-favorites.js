@@ -46,7 +46,7 @@ function getLocalStorage() {
   }
 }
 
-//getLocalStorage();
+getLocalStorage();
 
 function addResetFav() {
   const btnResetSerie = document.querySelectorAll(".js-btn-favorite");
@@ -64,8 +64,8 @@ function handleResetFav(event) {
   //borro la serie clicada
   console.log(favoriteSeries);
   favoriteSeries.splice(i, 1);
-  console.log(favoriteSeries, favoriteSeries.length);
-  //localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
+
+  localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
   paintFavoriteSeries();
   printSeries(seriesData);
 }
@@ -73,7 +73,7 @@ function handleResetFav(event) {
 function paintFavoriteSeries() {
   //variable vacía para pintar luego el html. Recorro y pinto.
   let listFavHTML = "";
-  ulFavorites.innerHTML = "";
+  //ulFavorites.innerHTML = "";
   for (const eachFavoriteSerie of favoriteSeries) {
     const fav = eachFavoriteSerie.show;
     let image = "";
