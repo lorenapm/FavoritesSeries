@@ -46,11 +46,34 @@ function getLocalStorage() {
   }
 }
 
-getLocalStorage();
+//getLocalStorage();
+
+function addResetFav() {
+  const btnResetSerie = document.querySelectorAll(".js-btn-favorite");
+  for (const eachBtn of btnResetSerie) {
+    eachBtn.addEventListener("click", handleResetFav);
+  }
+}
+function handleResetFav(event) {
+  //busco el index de la clicada por su id en favoritos
+  const pressButtonReset = event.currentTarget.id;
+  const FavResetId = parseInt(pressButtonReset);
+  let i = favoriteSeries.findIndex(
+    (seriefav) => seriefav.show.id === FavResetId
+  );
+  //borro la serie clicada
+  console.log(favoriteSeries);
+  favoriteSeries.splice(i, 1);
+  console.log(favoriteSeries, favoriteSeries.length);
+  //localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
+  paintFavoriteSeries();
+  printSeries(seriesData);
+}
 
 function paintFavoriteSeries() {
   //variable vacía para pintar luego el html. Recorro y pinto.
   let listFavHTML = "";
+  ulFavorites.innerHTML = "";
   for (const eachFavoriteSerie of favoriteSeries) {
     const fav = eachFavoriteSerie.show;
     let image = "";
@@ -61,7 +84,7 @@ function paintFavoriteSeries() {
     }
 
     listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites1"> <button class="btn-favorite js-btn-favorite " id="${fav.id}">X</button ><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
-    ulFavorites.innerHTML = listFavHTML;
   }
+  ulFavorites.innerHTML = listFavHTML;
   addResetFav();
 }
