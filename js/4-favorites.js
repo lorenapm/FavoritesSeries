@@ -83,7 +83,7 @@ function paintFavoriteSeries() {
       image = fav.image.medium;
     }
 
-    listFavHTML += `<li id="${fav.id}" class="serie__list--item js-favorite favorites1"> <button class="btn-favorite js-btn-favorite " id="${fav.id}">X</button ><img src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
+    listFavHTML += `<li id="${fav.id}" class="js-favorite favorites1 serie-sel"> <button class="btn-favorite js-btn-favorite " id="${fav.id}">X</button ><img class=img-sel src="${image}" alt="${fav.name}"><h3 class="item__name">${fav.name}</h3></li>`;
   }
   ulFavorites.innerHTML = listFavHTML;
   addResetFav();

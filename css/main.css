@@ -23,6 +23,14 @@ body {
   justify-content: start;
   align-items: flex-start;
 }
+
+.box__series-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: flex-start;
+}
 .serie__list--item {
   height: 380px;
   color: blanchedalmond;
@@ -32,10 +40,14 @@ body {
 }
 
 .box__favorites {
-  width: 300px;
-  background-color: darkgrey;
+  margin-top: 30px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  min-width: 330px;
+  min-height: 400px;
+  border-radius: 25px;
+  background-color: rgb(207, 203, 203);
   color: crimson;
-  display: inline-block;
 }
 .favorites {
   color: crimson;
@@ -47,5 +59,29 @@ body {
   background-color: crimson;
 }
 
-.btn-favorite {
+.serie-sel {
+  width: 130px;
+  height: 230px;
+  color: blanchedalmond;
+  background-color: crimson;
+  padding: 9px 20px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.img-sel {
+  width: 90px;
+}
+
+.title-sel {
+  margin-left: 20px;
+}
+
+.series-favorites {
+  padding-inline-start: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: flex-start;
 }
