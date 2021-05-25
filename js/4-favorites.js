@@ -62,7 +62,6 @@ function handleResetFav(event) {
     (seriefav) => seriefav.show.id === FavResetId
   );
   //borro la serie clicada
-  console.log(favoriteSeries);
   favoriteSeries.splice(i, 1);
 
   localStorage.setItem("favoriteSeries", JSON.stringify(favoriteSeries));
