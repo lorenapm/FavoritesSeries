@@ -23,12 +23,12 @@ function handleClickSerie(event) {
     (serieId) => serieId.show.id === showSerieId
   );
 
-  //condicional: si no está en favoritos lo añado, sino alerta
+  //condicional: si no está en favoritos lo añado, sino no
   if (showSerieFav === undefined) {
     favoriteSeries.push(showIdData);
-  } else {
+  } /*else {
     window.alert("Esta serie ya está entre sus favoritas");
-  }
+  }*/
 
   //lo añado a mis favoritos para después pintarlos
 
