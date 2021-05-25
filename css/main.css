@@ -32,6 +32,7 @@ body {
 }
 
 .box__favorites {
+  width: 300px;
   background-color: darkgrey;
   color: crimson;
   display: inline-block;
